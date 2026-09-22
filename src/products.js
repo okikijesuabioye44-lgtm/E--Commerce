@@ -3,7 +3,7 @@ const products = [
     id: 1,
 
     name: "T-shirt with Tape Details",
-    image: "./Image/image 7-photoroom.png",
+    image: "./Image/image 7-Photoroom.png",
     price: 120,
     rating: 4.5,
     reviews: 45,
