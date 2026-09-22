@@ -1,13 +1,11 @@
-// ===============================
-// CART.JS
-// ===============================
+// cart.js
 
 // Get saved cart
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// ===============================
+// ============
 // SAVE CART
-// ===============================
+// ============
 
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));

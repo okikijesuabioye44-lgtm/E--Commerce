@@ -1,10 +1,15 @@
 const products = [
   {
     id: 1,
+
     name: "T-shirt with Tape Details",
-    image: " ./Image/image 7-photoroom.png",
+    image: "./Image/image 7-photoroom.png",
     price: 120,
     rating: 4.5,
+    reviews: 45,
+    description:
+      "This stylish t-shirt is made from soft and comfortable fabric. Perfect for everyday wear.",
+    colors: ["#3d4035", "#344f4c", "#30344f"],
     category: "T-shirts",
   },
 
@@ -77,3 +82,23 @@ const products = [
     category: "Jeans",
   },
 ];
+
+// card.addEventListener("click", () => {
+//   window.location.href = `product details.html?id=${product.id}`;
+// });
+
+// function showTab(id, button) {
+//   document
+//     .querySelectorAll(".tab-content")
+//     .forEach((x) => x.classList.add("hidden"));
+
+//   document
+//     .querySelectorAll(".tab")
+//     .forEach((x) =>
+//       x.classList.remove("border-b-2", "border-black", "font-medium"),
+//     );
+
+//   document.getElementById(id).classList.remove("hidden");
+
+//   button.classList.add("border-b-2", "border-black", "font-medium");
+// }

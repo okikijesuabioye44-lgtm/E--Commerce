@@ -1,11 +1,13 @@
+function openProduct(id) {
+  window.location.href = `product-details.html?id=${id}`;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("script.js loaded");
-
-  console.log("Products:", products);
-
   function createProductCard(product) {
     return `
-            <div class="product-card">
+            <div
+                class="product-card cursor-pointer"
+                onclick="openProduct(${product.id})">
 
                 <div class="bg-[#f0f0f0] rounded-2xl overflow-hidden h-[220px]">
 
@@ -60,15 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 </div>
 
-                
-
                 <button
-    onclick="addToCart(${product.id})"
-    class="w-full bg-black text-white rounded-full py-5 mt-5
-           hover:bg-gray-800
-           hover:scale-[1.02]
-           active:scale-95
-           transition-all duration-200"> Add to Cart
+                    onclick="event.stopPropagation(); addToCart(${product.id})"
+                    class="w-full bg-black text-white rounded-full py-5 mt-5">
+                    Add to Cart
+                </button>
 
             </div>
         `;
@@ -84,8 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
     products.slice(0, 4).forEach(function (product) {
       newArrivals.innerHTML += createProductCard(product);
     });
-  } else {
-    console.log("new-arrivals element NOT found");
   }
 
   // TOP SELLING
@@ -98,36 +94,23 @@ document.addEventListener("DOMContentLoaded", function () {
     products.slice(4, 8).forEach(function (product) {
       topSelling.innerHTML += createProductCard(product);
     });
-  } else {
-    console.log("top-selling element NOT found");
   }
 });
 
-// products.slice(0, 4).forEach(function (product, index) {
-//   newArrivals.innerHTML += `
-//         <div
-//             style="animation-delay: ${index * 100}ms"
-//             class="product-card
-//                    opacity-0
-//                    animate-[fadeUp_0.6s_ease-out_forwards]">
-
-//             <!-- product content -->
-
-//         </div>
-//     `;
-// });
-
-const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
-
-if (menuButton && mobileMenu) {
-  menuButton.addEventListener("click", function () {
-    mobileMenu.classList.toggle("hidden");
-
-    if (mobileMenu.classList.contains("hidden")) {
-      menuButton.textContent = "☰";
-    } else {
-      menuButton.textContent = "✕";
-    }
-  });
+function openProduct(id) {
+  window.location.href = `product-details.html?id=${id}`;
 }
+
+const shopBtn = document.getElementById("shopBtn");
+const categoryMenu = document.getElementById("categoryMenu");
+const arrow = document.getElementById("arrow");
+
+shopBtn.addEventListener("click", function () {
+  categoryMenu.classList.toggle("hidden");
+
+  if (categoryMenu.classList.contains("hidden")) {
+    arrow.textContent = "⌄";
+  } else {
+    arrow.textContent = "⌃";
+  }
+});
